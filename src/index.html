@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style type="text/css">
+      .icon {
+        width: 1em;
+        height: 1em;
+        vertical-align: -0.15em;
+        fill: currentColor;
+        overflow: hidden;
+      }
+    </style>
+    <title>Search</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="globalHeader">
+        <div class="searchImageDiv">
+          <img
+            src="https://i.loli.net/2020/05/24/JmGbKNzLvWtDfio.png"
+            alt=""
+            class="searchImage"
+          />
+        </div>
+        <div class="formAndButtons">
+          <form action="" autocomplete="off" name="x" method="GET">
+            <div class="searchIconAndSearchInput">
+              <input class="searchInput" type="text" name="wd" />
+              <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-huabanfuben"></use>
+              </svg>
+            </div>
+            <div class="buttons">
+              <button onclick="baiDu()" class="button1">
+                点击搜索
+              </button>
+              <button onclick="google()" class="button2">
+                查看更多
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <script>
+        function baiDu() {
+          document.x.action = "https://baidu.com/s";
+
+          document.x.submit();
+        }
+
+        function google() {
+          document.x.action = "https://developer.mozilla.org/zh-CN/";
+          document.x.submit();
+        }
+      </script>
+    </header>
+    <!-- ---- -->
+    <main>
+      <div class="globalMain">
+        <ul class="siteList">
+          <li class="site" id="add">
+            <div class="siteLogo">
+              <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-add"></use>
+              </svg>
+            </div>
+            <div class="url">
+              点击添加
+            </div>
+          </li>
+        </ul>
+      </div>
+    </main>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="//at.alicdn.com/t/font_1838191_cese7y2jdzc.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
