@@ -46,6 +46,7 @@ const render = () => {
     });
     //删除事件
     let longClick = 0;
+    //避免长按结束后只能执行touchend中的事件
     const $siteLogo = $li.find(".siteLogo");
     //不能用$li监听,因为它已经被赋予一个监听了
     $siteLogo.on({
@@ -59,17 +60,16 @@ const render = () => {
       },
       touchmove: function () {
         clearTimeout(timeOutEvent);
-        timeOutEvent = 0;
-        e.preventDefault();
+        // timeOutEvent = 0;
+        // preventDefault();
       },
       touchend: function () {
         clearTimeout(timeOutEvent);
-        if (timeOutEvent != 0 && longClick == 0) {
+        if (timeOutEvent !== 0 && longClick === 0) {
           //点击
           //此处为点击事件----在此处添加跳转详情页(移动端)
           window.open("https://" + removeHttp(node.url), "_self");
         }
-        return false;
       },
     });
 
