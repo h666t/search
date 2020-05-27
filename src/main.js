@@ -105,7 +105,7 @@ $(document).on("keypress", (k) => {
   for (let i = 0; i < hashTable.length; i++) {
     if (key.toUpperCase() === hashTable[i].siteLogo) {
       console.log("ok");
-      window.open("https://" + hashTable[i].url, "_self");
+      window.open(hashTable[i].url, "_self");
     }
   }
 });
@@ -113,4 +113,4 @@ $(document).on("keypress", (k) => {
 $(document).on("keypress", ".searchInput", (event) => {
   event.stopPropagation();
 });
-//在input中打字时，阻止键盘事件
+//在input中输入时，阻止键盘事件
