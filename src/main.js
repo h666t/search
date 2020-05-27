@@ -98,3 +98,19 @@ window.onbeforeunload = () => {
   let stringHashTable = JSON.stringify(hashTable);
   let x = localStorage.setItem("stringHashTable", stringHashTable);
 };
+
+$(document).on("keypress", (k) => {
+  const { key } = k;
+
+  for (let i = 0; i < hashTable.length; i++) {
+    if (key.toUpperCase() === hashTable[i].siteLogo) {
+      console.log("ok");
+      window.open("https://" + hashTable[i].url, "_self");
+    }
+  }
+});
+//加入键盘事件
+$(document).on("keypress", ".searchInput", (event) => {
+  event.stopPropagation();
+});
+//在input中打字时，阻止键盘事件
