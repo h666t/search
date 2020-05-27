@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
-    <link rel="stylesheet" href="style.f535d47d.css">
+    <link rel="stylesheet" href="style.ebd3c554.css">
     <style>.icon {
         width: 1em;
         height: 1em;
@@ -21,9 +21,9 @@
           <img src="https://i.loli.net/2020/05/24/JmGbKNzLvWtDfio.png" alt="" class="searchImage">
         </div>
         <div class="formAndButtons">
-          <form action="" autocomplete="off" name="x" method="GET">
+          <form action="" autocomplete="off" id="searchForm" method="GET">
             <div class="searchIconAndSearchInput">
-              <input class="searchInput" type="text" name="wd">
+              <input class="searchInput" type="text" name="">
               <svg class="icon" aria-hidden="true">
                 <use xlink:href="#icon-huabanfuben"></use>
               </svg>
@@ -41,13 +41,15 @@
       </div>
 
       <script>function baiDu() {
-  document.x.action = "https://baidu.com/s";
-  document.x.submit();
+  $("#searchForm").attr("action", "https://baidu.com/s");
+  $(".searchInput").attr("name", "wd");
+  $("#searchForm").submit();
 }
 
 function google() {
-  document.x.action = "https://developer.mozilla.org/zh-CN/";
-  document.x.submit();
+  $("#searchForm").attr("action", "https://google.com/search");
+  $(".searchInput").attr("name", "q");
+  $("#searchForm").submit();
 }</script>
     </header>
     <!-- ---- -->

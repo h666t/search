@@ -230,8 +230,8 @@ button:focus {
   visibility: hidden;
 }
 
-.siteList .site:hover .close .icon {
-}
+/* .siteList .site:hover .close .icon {
+} */
 
 @media (min-width: 500px) {
   .siteList .site:hover .close .icon {
