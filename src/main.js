@@ -17,6 +17,7 @@ let hashTable = objectStringHashTable || [{ siteLogo: "G", url: "google.com" }];
 const render = () => {
   $siteList.find("li:not(#add)").remove();
   //每次渲染把除最后一个以外都删除
+
   hashTable.forEach((node, index) => {
     const $li = $(`<li class="site longPressCanTouchDelete">
     <div class = 'close'>
@@ -33,6 +34,7 @@ const render = () => {
       </li>
     `).insertBefore($add);
     //遍历哈希表，为里面的对象创建li
+
     $li.on("click", () => {
       window.open("https://" + removeHttp(node.url), "_self");
     });
