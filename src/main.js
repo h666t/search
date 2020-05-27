@@ -50,7 +50,7 @@ const render = () => {
       touchstart: function () {
         longClick = 0; //设置初始为0
         timeOutEvent = setTimeout(function () {
-          $li.find(".icon").css("opacity", "1");
+          $li.find(".icon").css("visibility", "visible");
           //此处为长按事件-----在此显示遮罩层及删除按钮
           longClick = 1; //假如长按，则设置为1
         }, 500);
@@ -73,7 +73,7 @@ const render = () => {
 
     //长按事件
     $(document).on("click", () => {
-      $li.find(".icon").css("opacity", "0");
+      $li.find(".icon").css("visibility", "hidden");
     });
     // //在长按点击其他地方，删除按钮隐藏
   });
