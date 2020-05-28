@@ -23,10 +23,8 @@ let hashTable = objectStringHashTable || [
 ];
 //使用数组（内有多个哈希表）来存放创建出来的siteM
 
-const render = () => {
-  $siteList.find("li:not(#add)").remove();
-  //每次渲染把除最后一个以外都删除
-  hashTable.sort((x, y) => {
+const sort = (x) => {
+  x.sort((x, y) => {
     if (x.siteLogo < y.siteLogo) {
       return -1;
     } else if (x.siteLogo > y.siteLogo) {
@@ -35,6 +33,13 @@ const render = () => {
     return 0;
   });
   //实现对siteLogo的排序
+};
+
+const render = () => {
+  sort(hashTable);
+  $siteList.find("li:not(#add)").remove();
+  //每次渲染把除最后一个以外都删除
+
   hashTable.forEach((node, index) => {
     const $li = $(`<li class="site longPressCanTouchDelete">
     <div class = 'close'>
@@ -60,6 +65,10 @@ const render = () => {
       event.stopPropagation();
       hashTable.splice(index, 1);
       render();
+      let stringHashTable = JSON.stringify(hashTable);
+      let x = localStorage.setItem("stringHashTable", stringHashTable);
+      //立即更新localStorage，解决删除后不能及时将数据存储到localStorage
+      console.log(hashTable);
     });
     //删除事件
     let longClick = 0;
