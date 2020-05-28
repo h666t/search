@@ -21,7 +21,15 @@ let hashTable = objectStringHashTable || [{ siteLogo: "G", url: "google.com" }];
 const render = () => {
   $siteList.find("li:not(#add)").remove();
   //每次渲染把除最后一个以外都删除
-
+  hashTable.sort((x, y) => {
+    if (x.siteLogo < y.siteLogo) {
+      return -1;
+    } else if (x.siteLogo > y.siteLogo) {
+      return 1;
+    }
+    return 0;
+  });
+  //实现对siteLogo的排序
   hashTable.forEach((node, index) => {
     const $li = $(`<li class="site longPressCanTouchDelete">
     <div class = 'close'>
