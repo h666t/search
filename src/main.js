@@ -15,8 +15,13 @@ const theTrueOpenHttp = (url) => {
 const getLocalStorageItem = localStorage.getItem("stringHashTable");
 const objectStringHashTable = JSON.parse(getLocalStorageItem);
 //获取存入的hashTable
-let hashTable = objectStringHashTable || [{ siteLogo: "G", url: "google.com" }];
-//使用数组（内有多个哈希表）来存放创建出来的site
+let hashTable = objectStringHashTable || [
+  { siteLogo: "M", url: "https://developer.mozilla.org/zh-CN/" },
+  { siteLogo: "G", url: "https://github.com" },
+  { siteLogo: "I", url: "https://www.iconfont.cn" },
+  { siteLogo: "F", url: "https://www.figma.com" },
+];
+//使用数组（内有多个哈希表）来存放创建出来的siteM
 
 const render = () => {
   $siteList.find("li:not(#add)").remove();
