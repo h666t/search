@@ -100,10 +100,10 @@ $add.on("click", () => {
   //将hashTable存入localStorage
 });
 
-window.onbeforeunload = () => {
-  let stringHashTable = JSON.stringify(hashTable);
-  let x = localStorage.setItem("stringHashTable", stringHashTable);
-};
+// window.onbeforeunload = () => {
+//   let stringHashTable = JSON.stringify(hashTable);
+//   let x = localStorage.setItem("stringHashTable", stringHashTable);
+// };
 
 $(document).on("keypress", (k) => {
   const { key } = k;

@@ -28,6 +28,11 @@ input {
   -ms-user-select: none;
   user-select: none;
 }
+
+input,
+textarea {
+  -webkit-user-select: auto;
+}
 /*去除移动端button点击后有虚线*/
 
 body {
@@ -35,10 +40,6 @@ body {
 }
 /*去除移动端长按图标后又蓝色的框*/
 
-input,
-textarea {
-  -webkit-user-select: auto;
-}
 /* 使页面无法长按复制 */
 
 /* .globalHeader {
