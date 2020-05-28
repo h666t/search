@@ -8,6 +8,10 @@ const removeHttp = (url) => {
     .replace(/\/.*/, "");
 };
 
+const theTrueOpenHttp = (url) => {
+  return url.replace("http://", "").replace("https://", "").replace("www.", "");
+};
+
 const getLocalStorageItem = localStorage.getItem("stringHashTable");
 const objectStringHashTable = JSON.parse(getLocalStorageItem);
 //获取存入的hashTable
@@ -36,7 +40,7 @@ const render = () => {
     //遍历哈希表，为里面的对象创建li
 
     $li.on("click", () => {
-      window.open("https://" + removeHttp(node.url), "_self");
+      window.open("https://" + theTrueOpenHttp(node.url), "_self");
     });
     //给li添加点击事件（pc端）
     $li.on("click", ".close", (event) => {
