@@ -71,17 +71,14 @@ const render = () => {
       console.log(hashTable);
     });
     //删除事件
-    let longClick = 0;
-    //避免长按结束后只能执行touchend中的事件
+
     const $siteLogo = $li.find(".siteLogo");
     //不能用$li监听,因为它已经被赋予一个监听了
     $siteLogo.on({
       touchstart: function () {
-        longClick = 0; //设置初始为0
         timeOutEvent = setTimeout(function () {
           $li.find(".icon").css("visibility", "visible");
           //此处为长按事件-----在此显示遮罩层及删除按钮
-          longClick = 1; //假如长按，则设置为1
         }, 500);
       },
       touchmove: function () {
@@ -89,14 +86,14 @@ const render = () => {
         // timeOutEvent = 0;
         // preventDefault();
       },
-      touchend: function () {
-        clearTimeout(timeOutEvent);
-        if (timeOutEvent !== 0 && longClick === 0) {
-          //点击
-          //此处为点击事件----在此处添加跳转详情页(移动端)
-          window.open("https://" + removeHttp(node.url), "_self");
-        }
-      },
+      // touchend: function () {
+      //   clearTimeout(timeOutEvent);
+      //   if (timeOutEvent !== 0 && longClick === 0) {
+      //     //点击
+      //     //此处为点击事件----在此处添加跳转详情页(移动端)
+      //     window.open("https://" + removeHttp(node.url), "_self");
+      //   }
+      // },
     });
 
     //长按事件
