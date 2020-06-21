@@ -5,7 +5,8 @@ const removeHttp = (url) => {
     .replace("http://", "")
     .replace("https://", "")
     .replace("www.", "")
-    .replace(/\/.*/, "");
+    .replace(/\/.*/, "")
+    .replace(/\.\w*/, "");
 };
 
 const theTrueOpenHttp = (url) => {
@@ -15,6 +16,7 @@ const theTrueOpenHttp = (url) => {
 const getLocalStorageItem = localStorage.getItem("stringHashTable");
 const objectStringHashTable = JSON.parse(getLocalStorageItem);
 //获取存入的hashTable
+
 let hashTable = objectStringHashTable || [
   { siteLogo: "M", url: "https://developer.mozilla.org/zh-CN/" },
   { siteLogo: "G", url: "https://github.com" },
@@ -23,19 +25,18 @@ let hashTable = objectStringHashTable || [
 ];
 //使用数组（内有多个哈希表）来存放创建出来的siteM
 
-const sort = (x) => {
-  x.sort((x, y) => {
-    if (x.siteLogo < y.siteLogo) {
-      return -1;
-    } else if (x.siteLogo > y.siteLogo) {
-      return 1;
-    }
-    return 0;
-  });
-  //实现对siteLogo的排序
-};
-
 const render = () => {
+  const sort = (x) => {
+    x.sort((x, y) => {
+      if (x.siteLogo < y.siteLogo) {
+        return -1;
+      } else if (x.siteLogo > y.siteLogo) {
+        return 1;
+      }
+      return 0;
+    });
+    //实现对siteLogo的排序
+  };
   sort(hashTable);
   $siteList.find("li:not(#add)").remove();
   //每次渲染把除最后一个以外都删除
@@ -118,12 +119,7 @@ $add.on("click", () => {
   let x = localStorage.setItem("stringHashTable", stringHashTable);
   //将hashTable存入localStorage
 });
-
-// window.onbeforeunload = () => {
-//   let stringHashTable = JSON.stringify(hashTable);
-//   let x = localStorage.setItem("stringHashTable", stringHashTable);
-// };
-
+//点击加号输入网址
 $(document).on("keypress", (k) => {
   const { key } = k;
 
