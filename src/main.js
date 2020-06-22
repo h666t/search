@@ -115,7 +115,7 @@ $(document).on("keypress", (k) => {
   for (let i = 0; i < hashTable.length; i++) {
     if (key.toUpperCase() === hashTable[i].siteLogo) {
       console.log(i);
-      window.open("https://" + hashTable[i].url, "_self");
+      window.open(hashTable[i].url, "_self");
       break;
       //防止有相同logo的网站，点击后多次遍历，导致打开的是i最大的那个网站，所以要break
     }
