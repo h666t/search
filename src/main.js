@@ -65,11 +65,10 @@ const render = () => {
     $li.on("click", ".close", (event) => {
       event.stopPropagation();
       hashTable.splice(index, 1);
-      render();
       let stringHashTable = JSON.stringify(hashTable);
       let x = localStorage.setItem("stringHashTable", stringHashTable);
+      render();
       //立即更新localStorage，解决删除后不能及时将数据存储到localStorage
-      console.log(hashTable);
     });
     //删除事件
 
@@ -84,17 +83,7 @@ const render = () => {
       },
       touchmove: function () {
         clearTimeout(timeOutEvent);
-        // timeOutEvent = 0;
-        // preventDefault();
       },
-      // touchend: function () {
-      //   clearTimeout(timeOutEvent);
-      //   if (timeOutEvent !== 0 && longClick === 0) {
-      //     //点击
-      //     //此处为点击事件----在此处添加跳转详情页(移动端)
-      //     window.open("https://" + removeHttp(node.url), "_self");
-      //   }
-      // },
     });
 
     //长按事件
@@ -125,8 +114,10 @@ $(document).on("keypress", (k) => {
 
   for (let i = 0; i < hashTable.length; i++) {
     if (key.toUpperCase() === hashTable[i].siteLogo) {
-      console.log("ok");
-      window.open(hashTable[i].url, "_self");
+      console.log(i);
+      window.open("https://" + hashTable[i].url, "_self");
+      break;
+      //防止有相同logo的网站，点击后多次遍历，导致打开的是i最大的那个网站，所以要break
     }
   }
 });
