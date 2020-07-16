@@ -5,8 +5,7 @@ const removeHttp = (url) => {
     .replace("http://", "")
     .replace("https://", "")
     .replace("www.", "")
-    .replace(/\/.*/, "")
-    .replace(/\.\w*/, "");
+    .replace(/\..*/, "");
 };
 
 const theTrueOpenHttp = (url) => {
@@ -18,7 +17,7 @@ const objectStringHashTable = JSON.parse(getLocalStorageItem);
 //获取存入的hashTable
 
 let hashTable = objectStringHashTable || [
-  { siteLogo: "M", url: "https://developer.mozilla.org/zh-CN/" },
+  {siteLogo: 'B',url: 'https://www.bootcdn.cn/'},
   { siteLogo: "G", url: "https://github.com" },
   { siteLogo: "I", url: "https://www.iconfont.cn" },
   { siteLogo: "F", url: "https://www.figma.com" },
