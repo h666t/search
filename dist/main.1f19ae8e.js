@@ -224,7 +224,7 @@ $(document).on("keypress", function (k) {
 $(document).on("keypress", ".searchInput", function (event) {
   event.stopPropagation();
 }); //在input中输入时，阻止键盘事件
-},{}],"../../../../../AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{}],"C:/Users/Tian/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -252,7 +252,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65246" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51398" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -428,5 +428,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../../../AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/hmr-runtime.js","main.js"], null)
+},{}]},{},["C:/Users/Tian/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","main.js"], null)
 //# sourceMappingURL=/main.1f19ae8e.js.map
